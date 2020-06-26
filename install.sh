@@ -15,10 +15,6 @@ systemctl status nvidia_smi_exporter
 
 mkdir -p /opt/iot/nvidia_smi_exporter
 
-
-export HOSTNAME=`hostname`
-export ENDPOINT="http://61.28.233.46:9091"
-
 echo '#!/bin/bash' > test.sh 
 echo "PUSHGATEWAY_SERVER=$ENDPOINT" >>  /opt/iot/nvidia_smi_exporter/nvidia_smi_exporter_metrics.sh
 echo "NODE_NAME=$HOSTNAME" >> /opt/iot/nvidia_smi_exporter/nvidia_smi_exporter_metrics.sh 
