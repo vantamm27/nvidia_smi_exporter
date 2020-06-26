@@ -4,7 +4,7 @@ wget -O /usr/local/bin/nvidia_smi_exporter  https://github.com/vantamm27/nvidia_
 
 chmod +x /usr/local/bin/nvidia_smi_exporter
 
-wget -O nvidia_smi_exporter.service https://raw.githubusercontent.com/vantamm27/nvidia_smi_exporter/master/nvidia_smi_exporter.service
+wget -O /etc/systemd/system/nvidia_smi_exporter.service/nvidia_smi_exporter.service  https://raw.githubusercontent.com/vantamm27/nvidia_smi_exporter/master/nvidia_smi_exporter.service
 
 
 exists=$(grep -c "^node_exporter:" /etc/passwd) && echo $exists
