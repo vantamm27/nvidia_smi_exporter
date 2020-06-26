@@ -6,7 +6,13 @@ chmod +x /usr/local/bin/nvidia_smi_exporter
 
 wget -O nvidia_smi_exporter.service https://raw.githubusercontent.com/vantamm27/nvidia_smi_exporter/master/nvidia_smi_exporter.service
 
-useradd -m -s /bin/bash node_exporter
+
+exists=$(grep -c "^node_exporter:" /etc/passwd) && echo $exists
+
+if [ $exists -eq 0 ]; then
+    useradd -m -s /bin/bash node_exporter
+
+fi 
 
 systemctl daemon-reload
 systemctl enable nvidia_smi_exporter
