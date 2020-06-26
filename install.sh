@@ -21,7 +21,7 @@ systemctl status nvidia_smi_exporter
 
 mkdir -p /opt/iot/nvidia_smi_exporter
 
-echo '#!/bin/bash' > test.sh 
+echo '#!/bin/bash' > nvidia_smi_exporter_metrics.sh 
 echo "PUSHGATEWAY_SERVER=$ENDPOINT" >>  /opt/iot/nvidia_smi_exporter/nvidia_smi_exporter_metrics.sh
 echo "NODE_NAME=$HOSTNAME" >> /opt/iot/nvidia_smi_exporter/nvidia_smi_exporter_metrics.sh 
 echo "curl -s localhost:9101/metrics | curl --data-binary @- \$PUSHGATEWAY_SERVER/metrics/job/node-exporter/instance/\$NODE_NAME " >>  /opt/iot/nvidia_smi_exporter/nvidia_smi_exporter_metrics.sh 
